@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
+import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
 
 interface Game {
@@ -26,6 +28,7 @@ interface Game {
     ram: string;
   };
   features: string[];
+  downloadUrl: string;
 }
 
 const gamesData: Record<number, Game> = {
@@ -58,7 +61,8 @@ const gamesData: Record<number, Game> = {
       'Кастомизация автомобилей',
       'Динамическая погода',
       'Поддержка геймпада'
-    ]
+    ],
+    downloadUrl: '#'
   },
   2: {
     id: 2,
@@ -89,7 +93,8 @@ const gamesData: Record<number, Game> = {
       'PvP арена',
       'Гильдии',
       'Регулярные обновления'
-    ]
+    ],
+    downloadUrl: '#'
   },
   3: {
     id: 3,
@@ -120,7 +125,8 @@ const gamesData: Record<number, Game> = {
       'Турниры',
       'Социальные функции',
       'Офлайн режим'
-    ]
+    ],
+    downloadUrl: '#'
   },
   4: {
     id: 4,
@@ -151,7 +157,8 @@ const gamesData: Record<number, Game> = {
       'Голосовой чат',
       'Система рангов',
       'Сезонные события'
-    ]
+    ],
+    downloadUrl: '#'
   },
   5: {
     id: 5,
@@ -182,7 +189,8 @@ const gamesData: Record<number, Game> = {
       'PvE кампания',
       'Магические герои',
       'События и турниры'
-    ]
+    ],
+    downloadUrl: '#'
   },
   6: {
     id: 6,
@@ -213,13 +221,39 @@ const gamesData: Record<number, Game> = {
       'Приятная музыка',
       'Без рекламы',
       'Офлайн режим'
-    ]
+    ],
+    downloadUrl: '#'
   }
 };
 
 const GameDetail = () => {
   const { id } = useParams();
   const game = gamesData[Number(id)];
+  const { toast } = useToast();
+  const [isDownloading, setIsDownloading] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState(0);
+
+  const handleDownload = () => {
+    if (isDownloading) return;
+    
+    setIsDownloading(true);
+    setDownloadProgress(0);
+
+    const interval = setInterval(() => {
+      setDownloadProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setIsDownloading(false);
+          toast({
+            title: "Скачивание завершено!",
+            description: `${game.title} успешно загружен на ваше устройство`,
+          });
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 300);
+  };
 
   if (!game) {
     return (
@@ -388,10 +422,18 @@ const GameDetail = () => {
                 <CardTitle>Скачать игру</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <Button className="w-full h-12 text-lg bg-gradient-to-r from-primary to-secondary hover:opacity-90 animate-pulse-glow">
-                  <Icon name="Download" size={24} className="mr-2" />
-                  Скачать
+                <Button 
+                  onClick={handleDownload}
+                  disabled={isDownloading}
+                  className="w-full h-12 text-lg bg-gradient-to-r from-primary to-secondary hover:opacity-90 animate-pulse-glow disabled:opacity-50"
+                >
+                  <Icon name={isDownloading ? "Loader2" : "Download"} size={24} className={`mr-2 ${isDownloading ? 'animate-spin' : ''}`} />
+                  {isDownloading ? `Скачивание ${downloadProgress}%` : 'Скачать'}
                 </Button>
+                
+                {isDownloading && (
+                  <Progress value={downloadProgress} className="w-full" />
+                )}
 
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center justify-between">

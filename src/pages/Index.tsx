@@ -216,9 +216,14 @@ const Index = () => {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-                      <Icon name="Download" size={18} className="mr-2" />
-                      Скачать
+                    <Button 
+                      className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                      onClick={(e) => {
+                        e.preventDefault();
+                      }}
+                    >
+                      <Icon name="Eye" size={18} className="mr-2" />
+                      Подробнее
                     </Button>
                   </CardFooter>
                 </Card>
@@ -265,8 +270,14 @@ const Index = () => {
                         {game.downloads}
                       </span>
                     </div>
-                    <Button size="sm" className="mt-3 bg-gradient-to-r from-primary to-secondary">
-                      Скачать
+                    <Button 
+                      size="sm" 
+                      className="mt-3 bg-gradient-to-r from-primary to-secondary"
+                      onClick={(e) => {
+                        e.preventDefault();
+                      }}
+                    >
+                      Подробнее
                     </Button>
                   </div>
                 </Card>
