@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -177,50 +178,51 @@ const Index = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredGames.map((game, index) => (
-              <Card 
-                key={game.id} 
-                className="overflow-hidden hover:scale-105 transition-transform duration-300 animate-fade-in border-border bg-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={game.image} 
-                    alt={game.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <Badge className="absolute top-3 right-3 bg-primary">
-                    {game.category}
-                  </Badge>
-                </div>
-                <CardHeader>
-                  <CardTitle className="flex items-center justify-between">
-                    {game.title}
-                    <div className="flex items-center gap-1 text-accent">
-                      <Icon name="Star" size={18} className="fill-accent" />
-                      <span className="text-sm">{game.rating}</span>
-                    </div>
-                  </CardTitle>
-                  <CardDescription>{game.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex justify-between text-sm text-muted-foreground mb-4">
-                    <span className="flex items-center gap-1">
-                      <Icon name="Download" size={16} />
-                      {game.downloads}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Icon name="HardDrive" size={16} />
-                      {game.size}
-                    </span>
+              <Link to={`/game/${game.id}`} key={game.id}>
+                <Card 
+                  className="overflow-hidden hover:scale-105 transition-transform duration-300 animate-fade-in border-border bg-card cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={game.image} 
+                      alt={game.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <Badge className="absolute top-3 right-3 bg-primary">
+                      {game.category}
+                    </Badge>
                   </div>
-                </CardContent>
-                <CardFooter>
-                  <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-                    <Icon name="Download" size={18} className="mr-2" />
-                    Скачать
-                  </Button>
-                </CardFooter>
-              </Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center justify-between">
+                      {game.title}
+                      <div className="flex items-center gap-1 text-accent">
+                        <Icon name="Star" size={18} className="fill-accent" />
+                        <span className="text-sm">{game.rating}</span>
+                      </div>
+                    </CardTitle>
+                    <CardDescription>{game.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex justify-between text-sm text-muted-foreground mb-4">
+                      <span className="flex items-center gap-1">
+                        <Icon name="Download" size={16} />
+                        {game.downloads}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Icon name="HardDrive" size={16} />
+                        {game.size}
+                      </span>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+                      <Icon name="Download" size={18} className="mr-2" />
+                      Скачать
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
@@ -235,39 +237,40 @@ const Index = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {games.slice(0, 4).map((game, index) => (
-              <Card 
-                key={game.id}
-                className="flex overflow-hidden hover:border-primary transition-all duration-300 animate-scale-in bg-card border-border"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="relative w-32 flex-shrink-0">
-                  <img 
-                    src={game.image} 
-                    alt={game.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute top-2 left-2 w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center font-bold">
-                    {index + 1}
+              <Link to={`/game/${game.id}`} key={game.id}>
+                <Card 
+                  className="flex overflow-hidden hover:border-primary transition-all duration-300 animate-scale-in bg-card border-border cursor-pointer"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
+                  <div className="relative w-32 flex-shrink-0">
+                    <img 
+                      src={game.image} 
+                      alt={game.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute top-2 left-2 w-8 h-8 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center font-bold">
+                      {index + 1}
+                    </div>
                   </div>
-                </div>
-                <div className="flex-1 p-4">
-                  <h3 className="font-bold mb-1">{game.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-2">{game.category}</p>
-                  <div className="flex items-center gap-4 text-sm">
-                    <span className="flex items-center gap-1 text-accent">
-                      <Icon name="Star" size={14} className="fill-accent" />
-                      {game.rating}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Icon name="Download" size={14} />
-                      {game.downloads}
-                    </span>
+                  <div className="flex-1 p-4">
+                    <h3 className="font-bold mb-1">{game.title}</h3>
+                    <p className="text-sm text-muted-foreground mb-2">{game.category}</p>
+                    <div className="flex items-center gap-4 text-sm">
+                      <span className="flex items-center gap-1 text-accent">
+                        <Icon name="Star" size={14} className="fill-accent" />
+                        {game.rating}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Icon name="Download" size={14} />
+                        {game.downloads}
+                      </span>
+                    </div>
+                    <Button size="sm" className="mt-3 bg-gradient-to-r from-primary to-secondary">
+                      Скачать
+                    </Button>
                   </div>
-                  <Button size="sm" className="mt-3 bg-gradient-to-r from-primary to-secondary">
-                    Скачать
-                  </Button>
-                </div>
-              </Card>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
