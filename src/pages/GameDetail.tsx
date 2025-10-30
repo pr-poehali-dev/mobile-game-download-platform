@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
+import GameEmbed from '@/components/GameEmbed';
 
 interface Game {
   id: number;
@@ -29,6 +30,7 @@ interface Game {
   };
   features: string[];
   downloadUrl: string;
+  playableInBrowser?: boolean;
 }
 
 const gamesData: Record<number, Game> = {
@@ -223,6 +225,201 @@ const gamesData: Record<number, Game> = {
       'Офлайн режим'
     ],
     downloadUrl: '#'
+  },
+  4: {
+    id: 4,
+    title: 'Brawl Stars',
+    category: 'Экшен',
+    rating: 4.9,
+    downloads: '500M+',
+    size: '350 MB',
+    image: 'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/bae3a5e8-e77c-40e9-a799-906e0dc83885.jpg',
+    description: 'Командные бои 3 на 3 с уникальными героями',
+    fullDescription: 'Присоединяйся к миллионам игроков в Brawl Stars! Выбирай из десятков уникальных бойцов с супер-способностями. Сражайся в быстрых 3-минутных матчах в командах 3 на 3 или в режиме королевской битвы. Собирай и улучшай персонажей, открывай новые режимы и карты. Яркая графика и динамичный геймплей не оставят равнодушным!',
+    developer: 'Supercell',
+    version: '48.175',
+    updated: '28 октября 2024',
+    screenshots: [
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/bae3a5e8-e77c-40e9-a799-906e0dc83885.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/bae3a5e8-e77c-40e9-a799-906e0dc83885.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/bae3a5e8-e77c-40e9-a799-906e0dc83885.jpg'
+    ],
+    requirements: {
+      os: 'Android 7.0+',
+      storage: '400 MB свободного места',
+      ram: '2 GB RAM'
+    },
+    features: [
+      'Командные бои 3v3',
+      'Режим королевской битвы',
+      '60+ уникальных бойцов',
+      'Регулярные обновления',
+      'Киберспортивные турниры'
+    ],
+    downloadUrl: '#',
+    playableInBrowser: true
+  },
+  5: {
+    id: 5,
+    title: 'PUBG Mobile',
+    category: 'Экшен',
+    rating: 4.6,
+    downloads: '1B+',
+    size: '800 MB',
+    image: 'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/3ad9dc05-b162-4086-b417-93e624b78aa0.jpg',
+    description: 'Легендарная королевская битва на 100 игроков',
+    fullDescription: 'Оригинальная королевская битва теперь на мобильных устройствах! PUBG Mobile предлагает невероятную графику, реалистичную физику и интенсивный геймплей. 100 игроков высаживаются на огромную карту, собирают оружие и сражаются до последнего выжившего. Различные режимы игры, огромный арсенал оружия и регулярные обновления.',
+    developer: 'KRAFTON',
+    version: '3.4.0',
+    updated: '25 октября 2024',
+    screenshots: [
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/3ad9dc05-b162-4086-b417-93e624b78aa0.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/3ad9dc05-b162-4086-b417-93e624b78aa0.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/3ad9dc05-b162-4086-b417-93e624b78aa0.jpg'
+    ],
+    requirements: {
+      os: 'Android 8.0+',
+      storage: '1 GB свободного места',
+      ram: '3 GB RAM'
+    },
+    features: [
+      '100 игроков онлайн',
+      'Реалистичная графика',
+      'Множество карт',
+      'Голосовой чат',
+      'Кланы и ранговые бои'
+    ],
+    downloadUrl: '#',
+    playableInBrowser: true
+  },
+  6: {
+    id: 6,
+    title: 'Free Fire',
+    category: 'Экшен',
+    rating: 4.5,
+    downloads: '1B+',
+    size: '600 MB',
+    image: 'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/9185e2d1-4cee-4347-82ef-65434a291714.jpg',
+    description: 'Быстрые 10-минутные сражения до последнего',
+    fullDescription: 'Free Fire - это быстрая королевская битва, где каждая игра длится всего 10 минут! 50 игроков высаживаются на остров и сражаются за выживание. Уникальные персонажи с особыми навыками, огромный арсенал оружия и транспорта. Идеально подходит для тех, кто ценит динамику и не хочет тратить много времени на одну игру.',
+    developer: 'Garena',
+    version: '1.102.1',
+    updated: '22 октября 2024',
+    screenshots: [
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/9185e2d1-4cee-4347-82ef-65434a291714.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/9185e2d1-4cee-4347-82ef-65434a291714.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/9185e2d1-4cee-4347-82ef-65434a291714.jpg'
+    ],
+    requirements: {
+      os: 'Android 7.0+',
+      storage: '700 MB свободного места',
+      ram: '2 GB RAM'
+    },
+    features: [
+      'Быстрые 10-мин матчи',
+      'Уникальные персонажи',
+      '50 игроков на карте',
+      'Командный режим',
+      'Еженедельные события'
+    ],
+    downloadUrl: '#',
+    playableInBrowser: true
+  },
+  7: {
+    id: 7,
+    title: 'Battle Royale Arena',
+    category: 'Экшен',
+    rating: 4.6,
+    downloads: '100M+',
+    size: '800 MB',
+    image: 'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/684cd25f-5179-4a66-90ee-9353ca74baee.jpg',
+    description: 'Многопользовательская королевская битва',
+    fullDescription: 'Окунитесь в мир интенсивных PvP сражений! Battle Royale Arena предлагает 100 игроков на карте, множество оружия и тактик для победы.',
+    developer: 'Battle Games Co',
+    version: '4.1.2',
+    updated: '25 октября 2024',
+    screenshots: [
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/684cd25f-5179-4a66-90ee-9353ca74baee.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/684cd25f-5179-4a66-90ee-9353ca74baee.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/684cd25f-5179-4a66-90ee-9353ca74baee.jpg'
+    ],
+    requirements: {
+      os: 'Android 8.0+',
+      storage: '1 GB свободного места',
+      ram: '4 GB RAM'
+    },
+    features: [
+      '100 игроков онлайн',
+      'Множество режимов',
+      'Голосовой чат',
+      'Система рангов',
+      'Сезонные события'
+    ],
+    downloadUrl: '#'
+  },
+  8: {
+    id: 8,
+    title: 'Magic Kingdom',
+    category: 'Стратегия',
+    rating: 4.5,
+    downloads: '20M+',
+    size: '500 MB',
+    image: 'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/b79c270d-4d8c-40a7-9a49-8e59786cfc77.jpg',
+    description: 'Постройте своё волшебное королевство',
+    fullDescription: 'Станьте правителем волшебного королевства! Стройте здания, развивайте экономику, тренируйте армию и защищайте свои земли от врагов.',
+    developer: 'Kingdom Games',
+    version: '2.3.4',
+    updated: '18 октября 2024',
+    screenshots: [
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/b79c270d-4d8c-40a7-9a49-8e59786cfc77.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/b79c270d-4d8c-40a7-9a49-8e59786cfc77.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/b79c270d-4d8c-40a7-9a49-8e59786cfc77.jpg'
+    ],
+    requirements: {
+      os: 'Android 8.0+',
+      storage: '600 MB свободного места',
+      ram: '2 GB RAM'
+    },
+    features: [
+      'Стратегическое строительство',
+      'Альянсы игроков',
+      'PvE кампания',
+      'Магические герои',
+      'События и турниры'
+    ],
+    downloadUrl: '#'
+  },
+  9: {
+    id: 9,
+    title: 'Color Match',
+    category: 'Головоломки',
+    rating: 4.4,
+    downloads: '30M+',
+    size: '80 MB',
+    image: 'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/18969d4f-8494-4c5e-a0d2-08434ed28eb1.jpg',
+    description: 'Собирайте цветные комбинации',
+    fullDescription: 'Простая, но затягивающая головоломка! Color Match предлагает расслабляющий геймплей, красивую графику и приятную музыку.',
+    developer: 'Color Games',
+    version: '1.5.2',
+    updated: '12 октября 2024',
+    screenshots: [
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/18969d4f-8494-4c5e-a0d2-08434ed28eb1.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/18969d4f-8494-4c5e-a0d2-08434ed28eb1.jpg',
+      'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/18969d4f-8494-4c5e-a0d2-08434ed28eb1.jpg'
+    ],
+    requirements: {
+      os: 'Android 7.0+',
+      storage: '100 MB свободного места',
+      ram: '1 GB RAM'
+    },
+    features: [
+      'Расслабляющий геймплей',
+      'Красивая графика',
+      'Приятная музыка',
+      'Без рекламы',
+      'Офлайн режим'
+    ],
+    downloadUrl: '#'
   }
 };
 
@@ -322,6 +519,12 @@ const GameDetail = () => {
                 </div>
               </CardHeader>
             </Card>
+
+            {game.playableInBrowser && (
+              <div className="animate-fade-in" style={{ animationDelay: '0.05s' }}>
+                <GameEmbed gameTitle={game.title} gameId={game.id} />
+              </div>
+            )}
 
             <Tabs defaultValue="about" className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
               <TabsList className="grid w-full grid-cols-3">

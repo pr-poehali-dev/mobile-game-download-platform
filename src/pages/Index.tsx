@@ -50,6 +50,36 @@ const games: Game[] = [
   },
   {
     id: 4,
+    title: 'Brawl Stars',
+    category: 'Экшен',
+    rating: 4.9,
+    downloads: '500M+',
+    size: '350 MB',
+    image: 'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/bae3a5e8-e77c-40e9-a799-906e0dc83885.jpg',
+    description: 'Командные бои 3 на 3 с уникальными героями'
+  },
+  {
+    id: 5,
+    title: 'PUBG Mobile',
+    category: 'Экшен',
+    rating: 4.6,
+    downloads: '1B+',
+    size: '800 MB',
+    image: 'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/3ad9dc05-b162-4086-b417-93e624b78aa0.jpg',
+    description: 'Легендарная королевская битва на 100 игроков'
+  },
+  {
+    id: 6,
+    title: 'Free Fire',
+    category: 'Экшен',
+    rating: 4.5,
+    downloads: '1B+',
+    size: '600 MB',
+    image: 'https://cdn.poehali.dev/projects/0e42aa32-0c99-4ce0-ad74-73486c720d70/files/9185e2d1-4cee-4347-82ef-65434a291714.jpg',
+    description: 'Быстрые 10-минутные сражения до последнего'
+  },
+  {
+    id: 7,
     title: 'Battle Royale Arena',
     category: 'Экшен',
     rating: 4.6,
@@ -59,7 +89,7 @@ const games: Game[] = [
     description: 'Многопользовательская королевская битва'
   },
   {
-    id: 5,
+    id: 8,
     title: 'Magic Kingdom',
     category: 'Стратегия',
     rating: 4.5,
@@ -69,7 +99,7 @@ const games: Game[] = [
     description: 'Постройте своё волшебное королевство'
   },
   {
-    id: 6,
+    id: 9,
     title: 'Color Match',
     category: 'Головоломки',
     rating: 4.4,
